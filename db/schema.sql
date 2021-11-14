@@ -1,32 +1,30 @@
+DROP DATABASE IF EXISTS employee_tracker;
+CREATE DATABASE employee_tracker;
+USE employee_tracker;
+
 DROP TABLE IF EXISTS employee;
 DROP TABLE IF EXISTS role;
 DROP TABLE IF EXISTS department;
 
-/* creates deparment table */
-CREATE TABLE deparments (
+CREATE TABLE department(
     id INTEGER AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(30)
+    name VARCHAR(30) NOT NULL
 );
 
-/* creates role table */
-CREATE TABLE roles (
+CREATE TABLE role(
     id INTEGER AUTO_INCREMENT PRIMARY KEY,
-    title VARCHAR (30),
-    salary DECIMAL NOT NULL,
-    department_id INT NOT NULL, 
-    /* This needs to be a FK */
-    CONSTRAINT fk_department FOREIGN KEY (department_id) REFERENCES departments(id)
+    title VARCHAR(30) NOT NULL,
+    salary DECIMAL(10, 2) NOT NULL,
+    department_id INTEGER,
+    FOREIGN KEY (department_id) REFERENCES department(id) ON DELETE SET NULL
 );
-
-/* creates employee table */
-CREATE TABLE employees (
-    id INTEGER AUTO_INCREMENT PRIMARY KEY,
+CREATE TABLE employee(
+    id INTEGER PRIMARY KEY,
     first_name VARCHAR(30) NOT NULL,
-    last_name VARCHAR (30) NOT NULL,
-    role_id INTEGER, /* This needs to be a FK */
-    is_manager BOOLEAN NOT NULL,
-    manager_id INTEGER /* This needs to be a FK */
-    CONSTRAINT fk_role FOREIGN KEY (role_id) REFERENCES roles(id),
-    CONSTRAINT fk_manager FOREIGN KEY (manager_id) REFERENCES employees(id)
+    last_name VARCHAR(30) NOT NULL,
+    department_id INTEGER,
+    role_id INTEGER,
+    manager_id INTEGER,
+    FOREIGN KEY (role_id) REFERENCES role(id) ON DELETE SET NULL,
+    FOREIGN KEY (manager_id) REFERENCES employee(id) ON DELETE SET NULL
 );
-
