@@ -21,7 +21,7 @@ To run this application you first need clone the application to your computer. T
 
 ## Usage
 
-After the proper set up and the required dependencies are installed run the code ```node index```. After this you will be greeted by the main menu and be presented with options to choose what to do next, either with employee's etc. video link here.
+After the proper set up and the required dependencies are installed run the code ```node index```. After this you will be greeted by the main menu and be presented with options to choose what to do next, either with employee's etc. video link [here](https://drive.google.com/file/d/1GsagpYa9-SfSkTHLm2vsWI_4xTVyIjlV/view?usp=sharing).
 
 ## License
 
