@@ -39,6 +39,13 @@ This project is current licensed under the [MIT](LICENSE) license.
 * dotenv
 * console.table
 
+## Authors
+* Tyler Pennington
+
+## Credits
+* Mike Tutor
+* Aiden Amato
+
 ## Plans
 
 This is a very bare bones program and there are some bugs to be worked out like functionality for updating and deleting departments and making it on a independent server.
